@@ -1,0 +1,61 @@
+/// <mls shortName="widgetSelectDogForAdoption" project="102026" enhancement="_100554_enhancementStyle" folder="widget/selectOne" />
+widget--select-one--widget-select-dog-for-adoption-102026 {
+.container {
+display: flex;
+flex-direction: column;
+}
+.dog-list {
+list-style: none;
+padding: 0;
+display: flex;
+flex-wrap: wrap;
+gap: @space-16;
+}
+.dog-item {
+border: 2px solid @bg-secondary-color;
+border-radius: @space-8;
+padding: @space-16;
+width: 200px;
+text-align: center;
+cursor: pointer;
+transition: border-color @transition-normal;
+&:hover {
+border-color: @active-color-hover;
+}
+&.selected {
+border-color: @active-color;
+background-color: @bg-primary-color-lighter-hover;
+}
+}
+.dog-photo {
+width: 100%;
+height: 150px;
+object-fit: cover;
+border-radius: @space-8;
+}
+.dog-info {
+h3 {
+font-size: @font-size-20;
+font-weight: @font-weight-bold;
+color: @text-primary-color;
+margin: @space-8 0;
+}
+p {
+font-size: @font-size-16;
+color: @text-primary-color-lighter;
+margin: 10px 0;
+}
+}
+@media (max-width: @breakpoint-medium) {
+.dog-list {
+flex-direction: column;
+align-items: center;
+}
+.dog-item {
+width: 100%;
+max-width: 300px;
+}
+}
+}
+
+
