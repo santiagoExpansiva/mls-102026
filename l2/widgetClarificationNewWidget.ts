@@ -9,7 +9,9 @@ import { convertFileNameToTag, convertTagToFileName } from '/_100554_/l2/utilsLi
 @customElement('widget-clarification-new-widget-102026')
 export class WcClarificationPlannerNewWidget100554 extends StateLitElement {
 
-    private ICABASEPROJECT = 100554;
+    private ICABASEPROJECT = mls.actualProject || 100554;
+
+    private folder = '';
 
     @property() data?: ClarificationData;
 
@@ -86,6 +88,8 @@ export class WcClarificationPlannerNewWidget100554 extends StateLitElement {
                     <input
                         @input= ${(e: MouseEvent) => this.handleParentInput(e, item)} 
                         type="text"
+                        readonly
+                        style="border:none"
                         .value=${item.widgetName}
                     ></input>
                 </div>
@@ -98,6 +102,8 @@ export class WcClarificationPlannerNewWidget100554 extends StateLitElement {
         if (!item.folder) {
             const base = this.getBase();
             item.folder = `widget/${base}`;
+            item.project = mls.actualProject || 0;
+            this.folder = item.folder;
         }
 
         item.tagName = this.createTagName(item.tagName, item.folder);
@@ -120,7 +126,7 @@ export class WcClarificationPlannerNewWidget100554 extends StateLitElement {
                         id="input_folder"
                         type="text"
                         readonly
-                        style="border:none"}
+                        style="border:none"
                         .value=${item.folder}
                     ></input>
                 </div>
@@ -225,7 +231,7 @@ export class WcClarificationPlannerNewWidget100554 extends StateLitElement {
         this.widgetNameError.innerHTML = "";
         item.widgetName = target.value;
         if (this.inputTag) {
-            this.inputTag.value = this.createTagName(target.value);
+            this.inputTag.value = this.createTagName(target.value, this.folder);
             const event = new Event('change', { bubbles: true });
             this.inputTag.dispatchEvent(event);
         }
@@ -342,7 +348,8 @@ interface ClarificationResume extends ClarificationBase {
 interface ClarificationWidgetName extends ClarificationBase {
     widgetName: string;
     tagName: string;
-    folder: string
+    folder: string;
+    project: number;
 }
 
 interface ClarificationParentName extends ClarificationBase {
