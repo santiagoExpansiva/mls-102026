@@ -18,6 +18,7 @@ import {
 import {
     startNewAiTask,
     startNewInteractionInAiTask,
+        addNewStep
 } from "/_100554_/l2/aiAgentOrchestration.js";
 
 import { formatHtml } from '/_100554_/l2/collabDOMSync.js';
@@ -132,6 +133,21 @@ async function addFile(context: mls.msg.ExecutionContext) {
     content.project = prj;
 
     await createNewFiles(content);
+
+    const rc = { shortName: content.shortName, project: prj, folder:content.folder }
+
+    const newStep: mls.msg.AIPayload = {
+        agentName: 'agentCreateWidget3',
+        prompt: JSON.stringify(rc),
+        status: 'pending',
+        stepId: step.stepId + 1,
+        interaction: null,
+        nextSteps: null,
+        rags: null,
+        type: 'agent'
+    }
+
+    await addNewStep(context, step.stepId, [newStep]);
 
     let aux = '';
     const m = mls.editor.getModels(prj, content.pageName, '');
