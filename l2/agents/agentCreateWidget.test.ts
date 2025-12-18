@@ -1,4 +1,4 @@
-/// <mls shortName="index" project="102026" enhancement="_blank" folder="widget/inputNumber" />
+/// <mls shortName="agentCreateWidget" project="102026" enhancement="_blank" folder="agents" />
 
  import { ICANTest, ICANIntegration, ICANSchema  } from '/_100554_/l2/tsTestAST.js';
  export const integrations: ICANIntegration[] = [];

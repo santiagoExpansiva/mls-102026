@@ -1,4 +1,4 @@
-/// <mls shortName="agentCreateWidget" project="102026" enhancement="_blank" />
+/// <mls shortName="agentCreateWidget" project="102026" enhancement="_blank" folder="agents" />
 
 import { IAgent, svg_agent } from '/_100554_/l2/aiAgentBase.js';
 import {

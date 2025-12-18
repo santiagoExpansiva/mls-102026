@@ -1,4 +1,4 @@
-/// <mls shortName="index" project="102026" enhancement="_blank" folder="widget/inputNumber" />
+/// <mls shortName="index" project="102026" enhancement="_blank" folder="molecules/selectone" />
 
 export const widgetDefinition = {
     name: "numberInput",

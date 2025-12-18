@@ -1,4 +1,5 @@
-/// <mls shortName="agentCreateWidget3" project="102026" enhancement="_blank" />
+/// <mls shortName="agentCreateWidget3" project="102026" enhancement="_blank" folder="agents" />
+
 
 import { IAgent, svg_agent } from '/_100554_/l2/aiAgentBase.js';
 import { preferModelType, getPromptByHtml } from '/_100554_/l2/aiPrompts.js';
